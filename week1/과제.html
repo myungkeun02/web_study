@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+  </style>
+  <title>과제</title>
+</head>
+<body>
+  <p><a href="./index.html">← 목록으로 이동</a></p>
+  <h1>1주차 과제</h1>
+  <hr>
+  <h3>Mission : 포도당 노래책 API 데이터를 자유자재로 다뤄보자!</h3>
+  <p>상세 미션 1 : 카테고리별로 몇 곡이 있는지 확인해서 보여주기</p>
+  <p>상세 미션 2 : 랜덤으로 곡을 하나씩 뽑아서 '곡명 - 가수명' 형태로 보여주기</p>
+  <p>상세 미션 3 : 검색 기능 구현해보기</p>
+  <hr>
+
+  <script>
+    // 데이터 로딩
+    var api_result;
+    var api_data = [];
+    fetch("https://api.c6h12o6.kr/music?page=1&per_page=1000&order=m.idx&order_type=desc")
+      .catch((error) => alert('API 로딩에 실패했습니다. 새로고침해주세요.'))
+      .then((response) => api_result = response.json())
+      .then((data) => api_data = data.data.data);
+  </script>
+
+  <div id="mission1">
+    <h4>미션 1 : 카테고리별로 몇 곡이 있는지 확인해서 보여주기</h4>
+    <p>설명 : 선택한 카테고리에 몇 곡이 있는지 '카테고리명 : 00곡' 형태로 알림 출력</p><br>
+    <label for="select1">카테고리</label>
+    <select name="select1" id="select1">
+      <option value="">선택</option>
+      <option value="1">K-POP</option>
+      <option value="2">J-POP</option>
+      <option value="4">보컬로이드</option>
+      <option value="5">애니메이션&게임&OST</option>
+      <option value="6">Honeyworks</option>
+      <option value="7">우타이테 오리지널</option>
+      <option value="8">시드사운드</option>
+    </select>
+    <button type="button" onclick="action1()">조회</button>
+
+    <script>
+      function action1() {
+
+      }
+    </script>
+  </div>
+
+  <hr>
+
+  <div id="mission2">
+    <h4>미션 2 : 랜덤으로 곡을 하나씩 뽑아서 '곡명 - 가수명' 형태로 보여주기</h4>
+    <p>설명 : 배열에서 랜덤으로 데이터를 뽑는 건 검색해보기!</p><br>
+    <button type="button" onclick="action2()">랜덤 조회</button>
+
+    <script>
+      function action2() {
+
+      }
+    </script>
+  </div>
+
+  <hr>
+
+  <div id="mission3">
+    <h4>미션 3 : 검색 기능 구현해보기</h4>
+    <p>설명 : 곡명, 가수명에 대해 검색 기능 구현해보기. 구현방식은 자유. 검색 결과는 배열에 담아 콘솔에 출력하기.</p><br>
+    <label for="input3">검색어</label>
+    <input type="text" name="input3" id="input3">
+    <button type="button" onclick="action3()">검색</button>
+
+    <script>
+      function action3() {
+
+      }
+    </script>
+  </div>
+
+</body>
+</html>
