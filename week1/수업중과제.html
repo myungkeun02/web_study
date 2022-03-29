@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+  </style>
+  <title>수업중과제</title>
+</head>
+<body>
+  <p><a href="./index.html">← 목록으로 이동</a></p>
+  <h1>1주차 수업중과제</h1>
+  <hr>
+  <h3>Mission : Yatchacha MBTI API 데이터를 자유자재로 다뤄보자!</h3>
+  <p>상세 미션 1 : 로딩된 객체 배열 데이터를 이용해 n번째 사람 찾기</p>
+  <p>상세 미션 2 : 닉네임으로 해당되는 사람의 mbti를 보여주는 스크립트 작성하기</p>
+  <p>상세 미션 3 : 특정 MBTI를 가진 사람의 닉네임을 쭉 뽑아서 보여주기</p>
+  <hr>
+
+  <script>
+    // 데이터 로딩
+    var api_result;
+    var api_data = [];
+    fetch("https://api.yatchacha.com/mbti/user?multiple_type=or&allow_tw_info=false")
+      .catch((error) => alert('API 로딩에 실패했습니다. 새로고침해주세요.'))
+      .then((response) => api_result = response.json())
+      .then((data) => api_data = data.data[0]);
+  </script>
+
+  <div id="mission1">
+    <h4>미션 1 : 로딩된 객체 배열 데이터를 이용해 n번째 사람 찾기</h4>
+    <p>설명 : 배열에서 n번째 사람을 찾아서 닉네임을 alert로 보여주기! (해당되는 사람이 없으면 없다고 알림)</p><br>
+    <label for="input1">n번째 사람 찾기</label>
+    <input type="text" name="input1" id="input1">
+    <button type="button" onclick="action1()">찾기</button>
+
+    <script>
+      function action1() {
+        const input_data = document.getElementById('inputl').value;
+
+        if (input_data < 1 || input_data > api_data.data.lenght) {
+          
+        }
+
+      }
+    </script>
+  </div>
+
+  <hr>
+
+  <div id="mission2">
+    <h4>미션 2 : 닉네임으로 해당되는 사람의 mbti를 보여주는 스크립트 작성하기</h4>
+    <p>설명 : 해당되는 닉네임을 가진 사람을 찾아서, 그 사람의 mbti를 alert로 보여주기! (해당되는 사람이 없으면 없다고 알림)</p><br>
+    <label for="input2">닉네임</label>
+    <input type="text" name="input2" id="input2">
+    <button type="button" onclick="action2()">찾기</button>
+
+    <script>
+      function action2() {
+
+      }
+    </script>
+  </div>
+
+  <hr>
+
+  <div id="mission3">
+    <h4>미션 3 : 특정 MBTI를 가진 사람의 닉네임을 쭉 뽑아서 보여주기</h4>
+    <p>설명 : select 박스에서 값을 가져와서 해당되는 사람 닉네임을 쭉 나열하여 alert로 보여주기! (ex. ISTP 선택시 '잉비네,_엔루,고앩이' 출력) (해당되는 사람이 없으면 없다고 알림)</p><br>
+    <label for="select3">MBTI</label>
+    <select name="select3" id="select3">
+      <option value="">선택</option>
+      <option value="ISTJ">ISTJ</option>
+      <option value="ISFJ">ISFJ</option>
+      <option value="INFJ">INFJ</option>
+      <option value="INTJ">INTJ</option>
+      <option value="ISTP">ISTP</option>
+      <option value="ISFP">ISFP</option>
+      <option value="INFP">INFP</option>
+      <option value="INTP">INTP</option>
+      <option value="ESTP">ESTP</option>
+      <option value="ESFP">ESFP</option>
+      <option value="ENFP">ENFP</option>
+      <option value="ENTP">ENTP</option>
+      <option value="ESTJ">ESTJ</option>
+      <option value="ESFJ">ESFJ</option>
+      <option value="ENFJ">ENFJ</option>
+      <option value="ENTJ">ENTJ</option>
+    </select>
+    <button type="button" onclick="action3()">찾기</button>
+
+    <script>
+      function action3() {
+
+      }
+    </script>
+  </div>
+
+</body>
+</html>
