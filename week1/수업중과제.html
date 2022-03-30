@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap" rel="stylesheet">
   <style>
-    body {background-color: lavender;
+    body {
+      background-color: lavender;
       font-family: 'Noto Sans KR', sans-serif;
     }
   </style>
   <title>수업중과제</title>
 </head>
+
 <body>
   <p><a href="./index.html">← 목록으로 이동</a></p>
   <h1>1주차 수업중과제</h1>
@@ -44,25 +47,24 @@
     <script>
       function action1() {
         const input_data = document.getElementById('input1').value;
-      
+
         if (input_data < 1 || input_data > api_data.data.length) {
           alert('해당되는 사람이 없습니다.')
-       
+
+        } else if (String(parseInt(input_data)).length != input_data.length) {
+          alert('숫자만 입력해 주세요');
+
+        } else {
+          for (let i = 0; api_data.data.length /*43*/ > i; i++) {
+
+            if (input_data * 1 === api_data.data[i].num) {
+              alert(api_data.data[i].num + " " + api_data.data[i].tw_name);
+              break;
+            }
+
+          }
         }
 
-        else if (String(parseInt(input_data)).length != input_data.length) {
-          alert('숫자만 입력해 주세요');
-       
-        }
-        else {for(let i = 0; api_data.data.length/*43*/ > i; i++) {
-        
-          if(input_data*1 === api_data.data[i].num) {
-            alert (api_data.data[i].num + " " + api_data.data[i].tw_name); break;
-          }
-        
-        }
-      }
-       
       }
     </script>
   </div>
@@ -78,7 +80,17 @@
 
     <script>
       function action2() {
+        const input_data2 = document.getElementById('input2').value;
 
+        for (let i = 0; api_data.data.length > i; i++) {
+          if (input_data2 === api_data.data[i].tw_name) {
+            alert(api_data.data[i].mbti);
+            break
+          } else {
+            continue;
+            alert('해당하는 사람이 없습니다.')
+          }
+        }
       }
     </script>
   </div>
@@ -87,7 +99,8 @@
 
   <div id="mission3">
     <h4>미션 3 : 특정 MBTI를 가진 사람의 닉네임을 쭉 뽑아서 보여주기</h4>
-    <p>설명 : select 박스에서 값을 가져와서 해당되는 사람 닉네임을 쭉 나열하여 alert로 보여주기! (ex. ISTP 선택시 '잉비네,_엔루,고앩이' 출력) (해당되는 사람이 없으면 없다고 알림)</p><br>
+    <p>설명 : select 박스에서 값을 가져와서 해당되는 사람 닉네임을 쭉 나열하여 alert로 보여주기! (ex. ISTP 선택시 '잉비네,_엔루,고앩이' 출력) (해당되는 사람이 없으면 없다고 알림)
+    </p><br>
     <label for="select3">MBTI</label>
     <select name="select3" id="select3">
       <option value="">선택</option>
@@ -118,4 +131,5 @@
   </div>
 
 </body>
+
 </html>
