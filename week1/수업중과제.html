@@ -70,7 +70,7 @@
   </div>
 
   <hr>
-  
+
 
   <div id="mission2">
     <h4>미션 2 : 닉네임으로 해당되는 사람의 mbti를 보여주는 스크립트 작성하기</h4>
@@ -126,7 +126,22 @@
 
     <script>
       function action3() {
+        const input_data3 = document.getElementById('select3').value;
 
+        let mbti_list = []
+
+        for (let i = 0; api_data.data.length > i; i++) {
+          if (input_data3 === api_data.data[i].mbti) {
+            mbti_list.push(api_data.data[i].tw_name)
+          } else {
+            continue
+          }
+        }
+        if (mbti_list.length > 0) {
+          alert(mbti_list)
+        } else {
+          alert('해당 mbti를 가진 사람이 없습니다.')
+        }
       }
     </script>
   </div>
