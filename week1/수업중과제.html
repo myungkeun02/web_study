@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap" rel="stylesheet">
   <style>
-    body {
+    body {background-color: lavender;
       font-family: 'Noto Sans KR', sans-serif;
     }
   </style>
@@ -43,12 +43,26 @@
 
     <script>
       function action1() {
-        const input_data = document.getElementById('inputl').value;
-
-        if (input_data < 1 || input_data > api_data.data.lenght) {
-          
+        const input_data = document.getElementById('input1').value;
+      
+        if (input_data < 1 || input_data > api_data.data.length) {
+          alert('해당되는 사람이 없습니다.')
+       
         }
 
+        else if (String(parseInt(input_data)).length != input_data.length) {
+          alert('숫자만 입력해 주세요');
+       
+        }
+        else {for(let i = 0; api_data.data.length/*43*/ > i; i++) {
+        
+          if(input_data*1 === api_data.data[i].num) {
+            alert (api_data.data[i].num + " " + api_data.data[i].tw_name); break;
+          }
+        
+        }
+      }
+       
       }
     </script>
   </div>
