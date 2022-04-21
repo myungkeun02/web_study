@@ -52,7 +52,16 @@
 
     <script>
       function action1() {
-
+        const input_data1 = document.getElementById("select1").value;
+        var target = document.getElementById("select1")
+        let music_count =0;
+        input=Number(input_data1)
+        for(let i =0; api_data.length >i; i++) {
+        if(input ===  api_data[i].category_idx) {
+            music_count++
+          }
+        }
+        alert (target.options[target.selectedIndex].text+':'+music_count+'곡')
       }
     </script>
   </div>
@@ -66,6 +75,8 @@
 
     <script>
       function action2() {
+        var i = Math.floor(Math.random() * 366)+1;
+        alert (api_data[i].music_name+' - '+api_data[i].author_name)
 
       }
     </script>
